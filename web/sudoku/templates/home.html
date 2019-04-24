@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <title>SudokuOCR Solver</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <style>
+            body {
+                padding-top: 70px;
+            }
+        </style>
+        {% load widget_tweaks %}     
+        {% load static %}
+        <link href=" {% static 'css/main.css' %} " rel="stylesheet">
+        {% load widget_tweaks %}     
+    </head>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">SudokuOCR Solver </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/post">Post new</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="col-xs-10 col-md-4 col-xs-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">Original image :</div>
+                <div class="panel-body">
+                   <img class='img-responsive' src="{{ image.upFile }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-10 col-md-4 col-xs-offset-1">
+        <div class="panel panel-default">
+            <!-- Default panel contents --> 
+            <div class="panel-heading">Solved sudoku :</div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                    {% for elem in result %}
+                        {% if forloop.counter0|divisibleby:9 %}<tr>{% endif %}
+                                <td> {{ elem }}</td>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</html>

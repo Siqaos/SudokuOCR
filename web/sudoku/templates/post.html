@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>SudokuOCR Solver</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% load widget_tweaks %} {% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{% static 'css/bootstrap-imageupload.css' %}" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        
+        .imageupload {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">SudokuOCR Solver </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/post">Post new</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="imageupload panel panel-default">
+                    <div class="panel-heading clearfix">
+                        <h3 class="panel-title pull-left">Upload Image</h3>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="file-tab panel-body text-center ">
+                            <label class="btn btn-default"> Browse {% render_field form.cover class+="btn btn-default btn-file" type+="file" name+="image-file" %}
+                            </label>
+                        </div>
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success center-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src=" {% static 'js/bootstrap-imageupload.js' %}"></script>
+<script>
+    var $imageupload = $('.imageupload');
+    $imageupload.imageupload();
+
+    $('#imageupload-disable').on('click', function() {
+        $imageupload.imageupload('disable');
+        $(this).blur();
+    })
+
+    $('#imageupload-enable').on('click', function() {
+        $imageupload.imageupload('enable');
+        $(this).blur();
+    })
+
+    $('#imageupload-reset').on('click', function() {
+        $imageupload.imageupload('reset');
+        $(this).blur();
+    });
+</script>
+
+</html>

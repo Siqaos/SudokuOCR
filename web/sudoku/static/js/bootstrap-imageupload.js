@@ -1,3 +1,10 @@
+/**
+ * bootstrap-imageupload v1.1.2
+ * https://github.com/egonolieux/bootstrap-imageupload
+ * Copyright 2016 Egon Olieux
+ * Released under the MIT license
+ */
+
 if (typeof jQuery === 'undefined') {
     throw new Error('bootstrap-imageupload\'s JavaScript requires jQuery.');
 }
