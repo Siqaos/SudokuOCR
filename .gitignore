@@ -1,2 +1,6 @@
 /web/media/
 /sudoku/__pycache__/
+/web/.vscode/
+/web/sudoku/__pycache__
+/web/migrations
+/web/web/__pycache__
